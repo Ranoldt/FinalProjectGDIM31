@@ -56,6 +56,7 @@ public class GameStateManager : MonoBehaviour
     {
         OnGameOver?.Invoke();
         SceneManager.LoadScene(0);
+
         //Add any logic that you would want to do when the game ends here
 
         //This invokes the game over screen - here we are calling all the methods that subscribed to this action. 

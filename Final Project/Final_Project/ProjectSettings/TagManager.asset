@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameOver
+  - Score
+  - Ground
+  - Enemy
+  - Destroy
+  - Attack
+  - Building
+  - Ninja
+  - Killed
   layers:
   - Default
   - TransparentFX

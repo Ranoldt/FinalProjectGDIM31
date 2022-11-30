@@ -18,12 +18,10 @@ public class Building : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        //This method is called when the object enters a collider trigger. 
-       
-      
-
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Destroy")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

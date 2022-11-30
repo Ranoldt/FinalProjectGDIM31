@@ -16,7 +16,7 @@ public class BuildingSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextSpawnTime = Random.Range(spawnMinTime, spawnMaxTime);
+        nextSpawnTime = 0f;
         
         //Initalize when you will spawn the first pillar here.
 
@@ -35,7 +35,7 @@ public class BuildingSpawner : MonoBehaviour
 
         if (Time.time >= nextSpawnTime)
         {
-            GameObject.Instantiate(buildingPrefabs[Random.Range(0, 7)], transform);
+            GameObject.Instantiate(buildingPrefabs[Random.Range(0, 8)], transform);
             nextSpawnTime = Time.time + Random.Range(spawnMinTime, spawnMaxTime);
         }
 

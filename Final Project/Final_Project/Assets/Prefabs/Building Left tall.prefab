@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360566276928283097}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.448, y: 0.568, z: 0}
+  m_LocalPosition: {x: -4.07, y: 2.83, z: 0}
   m_LocalScale: {x: 0.05, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33287048, y: 8.321267}
+  m_Offset: {x: 0.33287048, y: 60.573498}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.33425903, y: 26.456629}
+  m_Size: {x: 0.33425903, y: 130.96109}
   m_EdgeRadius: 0
 --- !u!1 &7363891483959745591
 GameObject:
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4250576086882219874}
   - component: {fileID: 313456943353304903}
   m_Layer: 0
-  m_Name: bioxxx-removebg-preview 3
+  m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,8 +84,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7363891483959745591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.43000004, y: 1.193, z: 0}
-  m_LocalScale: {x: 0.052558, y: 0.10052001, z: 1}
+  m_LocalPosition: {x: -4.04, y: 4.33, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5601025697169000672}
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016095638, y: 0.12623638}
+  m_Offset: {x: -0.016095638, y: 0.063685894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,7 +167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.549324, y: 2.3435707}
+  m_Size: {x: 2.549324, y: 2.4686718}
   m_EdgeRadius: 0
 --- !u!1 &8672438739298045128
 GameObject:
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 5865123140205538656}
   m_Layer: 0
   m_Name: Building Left tall
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,8 +196,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8672438739298045128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 10, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6011281613781389808}
@@ -245,8 +245,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b8ed50c55ef9a74286249217f0fb32c, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: fac5db92ad46ebf47a3f7315865828a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -270,18 +270,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003027141, y: -0.006054163}
+  m_Offset: {x: 0.005224228, y: -1.953403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.25, y: 2.25}
+    oldSize: {x: 21, y: 15.001465}
     newSize: {x: 2.25, y: 2.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2389477, y: 2.1652412}
+  m_Size: {x: 12.048382, y: 10.944814}
   m_EdgeRadius: 0
 --- !u!114 &5865123140205538656
 MonoBehaviour:
