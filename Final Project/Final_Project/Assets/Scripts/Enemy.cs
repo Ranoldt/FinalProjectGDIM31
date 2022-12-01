@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     {
         boxColliderComponent = GameObject.Find("enemyattackArea").GetComponent<BoxCollider2D>();
         m_AnimEnemy = GetComponent<Animator>();
-        boxColliderComponent.enabled = false;
+        boxColliderComponent.enabled = true;
         if (m_AnimEnemy != null)
         {
             m_AnimEnemy.SetBool("Killed", false);
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            boxColliderComponent.enabled = true;
+            
             m_AnimEnemy.SetBool("Killed", true);
             Destroy(GameObject.FindWithTag("Player"));
             GameStateManager.GameOver();
@@ -45,14 +45,11 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Attack")
         {
-            boxColliderComponent.enabled = false;
+            
             m_AnimEnemy.SetTrigger("Die");
             gameObject.SetActive(false);
         }
-        if (gameObject != null)
-        {
-            Instantiate(gameObject);
-        }
+        
             
 
     }

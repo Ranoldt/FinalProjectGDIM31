@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     private float upForce;
     [SerializeField]
     private Text scoreDisplay;
-
+    [SerializeField]
+    private Text Highscoredisplay;
+    
     private int score;
 
     public float time;
@@ -20,6 +22,11 @@ public class PlayerController : MonoBehaviour
     private Animator m_Anim;
     private bool m_Ground;
     private bool m_Attack;
+
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource RewardSoundEffect;
+    [SerializeField] private AudioSource EnemenySoundEffect;
+    [SerializeField] private AudioSource DeathSoundEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +38,7 @@ public class PlayerController : MonoBehaviour
         }
         
         upForce = 10.0f;
-        timer = 0.7f;
+        timer = 0.85f;
         time = 0.0f;
     }
 
@@ -41,9 +48,11 @@ public class PlayerController : MonoBehaviour
         time += Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            
             m_Anim.SetBool("Ground", false);
             if (time >= timer)
             {
+                jumpSoundEffect.Play();
                 rb.velocity = transform.up * upForce;
                 time = 0.0f;
             }
@@ -62,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "GameOver")
         {
-
+            DeathSoundEffect.Play();
             m_Anim.SetTrigger("Die");
             Destroy(gameObject);
             GameStateManager.GameOver();
@@ -70,12 +79,14 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Score")
         {
+            RewardSoundEffect.Play();
             score += 100;
             scoreDisplay.text = "" + score;
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
+            EnemenySoundEffect.Play();
             score += 100;
             scoreDisplay.text = "" + score;
         }

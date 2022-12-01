@@ -13,6 +13,8 @@ public class Attack : MonoBehaviour
     private Animator m_AnimNinja;
     private bool m_Ground;
     private bool m_Attack;
+
+    [SerializeField] private AudioSource AttackSoundEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +34,13 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-           
+            AttackSoundEffect.Play();
             attack();
             m_AnimNinja.SetBool("Attack", true);
         }
         if (attacking)
         {
-            
+          
             timer += Time.deltaTime;
 
             if (timer >= TimeToAttack)

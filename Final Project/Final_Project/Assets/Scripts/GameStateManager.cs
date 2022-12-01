@@ -20,7 +20,7 @@ public class GameStateManager : MonoBehaviour
     
     private static GameStateManager _instance; //This class is a Singleton - We will also discuss this pattern later in this class.
 
-
+   
 
 
 
@@ -55,7 +55,7 @@ public class GameStateManager : MonoBehaviour
     public static void GameOver()
     {
         OnGameOver?.Invoke();
-        SceneManager.LoadScene(0);
+        
 
         //Add any logic that you would want to do when the game ends here
 
