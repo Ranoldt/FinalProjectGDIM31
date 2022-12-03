@@ -16,7 +16,7 @@ public class Attack : MonoBehaviour
 
     [SerializeField] private AudioSource AttackSoundEffect;
     // Start is called before the first frame update
-    void Start()
+    void Start() //define animation, boxcollider for Player attack. 
     {
         boxColliderComponent = GameObject.Find("ninjaattackArea").GetComponent<BoxCollider2D>();
         m_AnimNinja = GetComponent<Animator>();
@@ -26,11 +26,11 @@ public class Attack : MonoBehaviour
             m_AnimNinja.SetBool("Ground", true);
            
         }
-        ninjaattackArea = this.gameObject.transform.GetChild(0).gameObject;
+       ninjaattackArea = this.gameObject.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//When e is pressed, Player attacks with sound.
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -56,11 +56,11 @@ public class Attack : MonoBehaviour
 
     }
 
-    private void attack()
+    private void attack() //Attack method
     {
         boxColliderComponent.enabled = true;
         attacking = true;
         ninjaattackArea.SetActive(attacking);
-        Debug.Log("A");
+        
     }
 }

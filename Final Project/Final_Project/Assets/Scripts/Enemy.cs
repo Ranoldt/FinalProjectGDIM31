@@ -4,50 +4,46 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private GameObject enemyattackArea = default;
     private BoxCollider2D boxColliderComponent;
 
     private Animator m_AnimEnemy;
     private bool m_Ground;
     
     // Start is called before the first frame update
-    void Start()
+    void Start() //Define animation
     {
-        boxColliderComponent = GameObject.Find("enemyattackArea").GetComponent<BoxCollider2D>();
+       
         m_AnimEnemy = GetComponent<Animator>();
-        boxColliderComponent.enabled = true;
+       
         if (m_AnimEnemy != null)
         {
             m_AnimEnemy.SetBool("Killed", false);
 
         }
-        enemyattackArea = this.gameObject.transform.GetChild(0).gameObject;
+       
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        gameObject.SetActive(true);
-    }
+    
+  
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //If player runs into tag, kill player
     {
         if (collision.gameObject.tag == "Player")
         {
             
             m_AnimEnemy.SetBool("Killed", true);
-            Destroy(GameObject.FindWithTag("Player"));
+            Destroy(GameObject.FindWithTag("Player"),4f);
             GameStateManager.GameOver();
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //If enemy runs into tag, kill Enemy
     {
         if (collision.gameObject.tag == "Attack")
         {
             
-            m_AnimEnemy.SetTrigger("Die");
-            gameObject.SetActive(false);
+         
+            Destroy(gameObject);
         }
         
             

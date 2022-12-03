@@ -15,7 +15,9 @@ public class Mover : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
+        // sets start position to transform position
     }
+
 
     // Update is called once per frame
     void Update()
@@ -25,5 +27,6 @@ public class Mover : MonoBehaviour
         {
             transform.position = startPos;
         }
+        //background moves
     }
 }

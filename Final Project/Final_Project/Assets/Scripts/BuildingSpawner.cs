@@ -5,20 +5,19 @@ using UnityEngine;
 public class BuildingSpawner : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> buildingPrefabs;  //A list of pillar object templates
+    private List<GameObject> buildingPrefabs;  //A list of building object templates
     [SerializeField]
-    private float spawnMinTime; //The minimum amount of time to wait before spawning a pillar
+    private float spawnMinTime; //The minimum amount of time to wait before spawning a building
     [SerializeField]
-    private float spawnMaxTime; //The maximum amount of time to wait before spawning a pillar
+    private float spawnMaxTime; //The maximum amount of time to wait before spawning a building
 
-    private float nextSpawnTime; //The next time to spawn a pillar
-
+    private float nextSpawnTime; //The next time to spawn a building
     // Start is called before the first frame update
     void Start()
     {
         nextSpawnTime = 0f;
         
-        //Initalize when you will spawn the first pillar here.
+        //buildings spawn immediately so the player can jump from a starting building rather than fall. 
 
     }
 
@@ -26,16 +25,13 @@ public class BuildingSpawner : MonoBehaviour
     void Update()
     {
 
-        //Here we will want to check if it's time to spawn another pillar. 
+        //Check when a building will spawn
 
-        //To spawn a pillar:
-        //Randomly select a pillar template from the list
-        //Use Instantiate to create an instance of that template in the game world.
-        //Select the next time to spawn a pillar
+       
 
         if (Time.time >= nextSpawnTime)
         {
-            GameObject.Instantiate(buildingPrefabs[Random.Range(0, 8)], transform);
+            GameObject.Instantiate(buildingPrefabs[Random.Range(0, 9)], transform);
             nextSpawnTime = Time.time + Random.Range(spawnMinTime, spawnMaxTime);
         }
 

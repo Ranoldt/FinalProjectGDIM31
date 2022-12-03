@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Text Highscoredisplay;
     
-    private int score;
+    public int score;
 
     public float time;
     public float timer;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource EnemenySoundEffect;
     [SerializeField] private AudioSource DeathSoundEffect;
     // Start is called before the first frame update
-    void Start()
+    void Start() //Define animation, Jump Variables. 
     {
         m_Anim = GetComponent<Animator>();
         if (m_Anim != null)
@@ -40,10 +40,11 @@ public class PlayerController : MonoBehaviour
         upForce = 10.0f;
         timer = 0.85f;
         time = 0.0f;
+        Highscoredisplay.text = PlayerPrefs.GetInt("HighScore", 0).ToString(); //Create a PlayerPref to save data onto text
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //When the space key is pressed, Object will jump with timer. 
     {
         time += Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.Space))
@@ -57,9 +58,15 @@ public class PlayerController : MonoBehaviour
                 time = 0.0f;
             }
         }
+
+        if (score > PlayerPrefs.GetInt("HighScore", 0)) //When the score is higher than the Highscore text, Set as Highscore
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            Highscoredisplay.text = "" +score;
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)// When Playeer touches ground, play running animation
     {
         if (collision.gameObject.tag == "Ground")
         {
@@ -69,27 +76,30 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "GameOver")
+        if (collision.gameObject.tag == "GameOver")//When Object collides with tag, it will call upon Gameover, Destroy Object, Play Animation, and sound.
         {
             DeathSoundEffect.Play();
-            m_Anim.SetTrigger("Die");
-            Destroy(gameObject);
+            m_Anim.SetBool("GameOver", true);
+            Destroy(gameObject, 4f);
             GameStateManager.GameOver();
         }
 
-        if (collision.gameObject.tag == "Score")
+        if (collision.gameObject.tag == "Score")//When Object collides with tag, it will call sound and add to score.
         {
             RewardSoundEffect.Play();
             score += 100;
             scoreDisplay.text = "" + score;
+            
+            
         }
 
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")//When Object collides with tag, it will call sound and add to score. 
         {
             EnemenySoundEffect.Play();
             score += 100;
             scoreDisplay.text = "" + score;
         }
     }
+
 
 }
