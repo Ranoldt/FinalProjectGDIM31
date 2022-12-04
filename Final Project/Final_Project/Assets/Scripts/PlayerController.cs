@@ -80,7 +80,15 @@ public class PlayerController : MonoBehaviour
         {
             DeathSoundEffect.Play();
             m_Anim.SetBool("GameOver", true);
-            Destroy(gameObject, 4f);
+            Destroy(gameObject, 0.3f);
+            GameStateManager.GameOver();
+        }
+
+        if (collision.gameObject.tag == "Killed")//When Object collides with tag, it will call upon Gameover, Destroy Object, Play Animation, and sound.
+        {
+            DeathSoundEffect.Play();
+            m_Anim.SetBool("GameOver", true);
+            Destroy(gameObject, 0.3f);
             GameStateManager.GameOver();
         }
 
