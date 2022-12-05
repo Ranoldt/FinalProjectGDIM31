@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume () //Set time to 1f to revwerse Pause
+    public void Resume () //Set time to 1f to reverse Pause
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu() //Load menu for button
     {
         SceneManager.LoadScene(0);
+        Resume(); //Calls to resume function to allow game to run.
     }
 
     public void QuitGame() //Quit game for button

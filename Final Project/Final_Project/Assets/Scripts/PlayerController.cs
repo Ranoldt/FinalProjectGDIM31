@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Text Highscoredisplay;
     
     public int score;
+    private int value = 0;
 
     public float time;
     public float timer;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Animator m_Anim;
     private bool m_Ground;
     private bool m_Attack;
+    
 
     [SerializeField] private AudioSource jumpSoundEffect;
     [SerializeField] private AudioSource RewardSoundEffect;
@@ -53,11 +55,17 @@ public class PlayerController : MonoBehaviour
             m_Anim.SetBool("Ground", false);
             if (time >= timer)
             {
-                jumpSoundEffect.Play();
-                rb.velocity = transform.up * upForce;
-                time = 0.0f;
+                if (value != 2)
+                {
+                    jumpSoundEffect.Play();
+                    rb.velocity = transform.up * upForce;
+                    time = 0.0f;
+                    value += 1;
+                }
             }
         }
+
+       
 
         if (score > PlayerPrefs.GetInt("HighScore", 0)) //When the score is higher than the Highscore text, Set as Highscore
         {
@@ -71,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             m_Anim.SetBool("Ground", true);
+            value = 0;
         }
         
     }
@@ -94,10 +103,12 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Score")//When Object collides with tag, it will call sound and add to score.
         {
-            RewardSoundEffect.Play();
-            score += 100;
-            scoreDisplay.text = "" + score;
-            
+                if (gameObject.tag != "Attack")
+                {
+                    RewardSoundEffect.Play();
+                    score += 100;
+                    scoreDisplay.text = "" + score;
+                }
             
         }
 
